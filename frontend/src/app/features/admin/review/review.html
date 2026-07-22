@@ -7,7 +7,7 @@
                     <button mat-icon-button (click)="goBack()" type="button" matTooltip="Back to previous step">
                         <mat-icon>arrow_back</mat-icon>
                     </button>
-                    <mat-card-title>Review Registrations</mat-card-title>
+                    <mat-card-title>Réviser les Inscriptions</mat-card-title>
                 </div>
             </mat-card-header>
             <br />
@@ -19,12 +19,11 @@
                 } @else {
                 <div class="error-container mat-elevation-z2">
                     <mat-icon class="error-icon">search_off</mat-icon>
-                    <h2>No Registration Found</h2>
-                    <p>We couldn't find the details for the ID provided. It may have been deleted or you might not have
-                        permission to view it.</p>
+                    <h2>Aucune Inscription Trouvée</h2>
+                    <p>Nous n'avons pas trouvé les détails pour l'identifiant fourni. Il a peut-être été supprimé ou vous ne disposez pas des droits nécessaires pour le consulter.</p>
                     <button mat-flat-button color="primary" (click)="goBack()">
                         <mat-icon>arrow_back</mat-icon>
-                        RETURN TO DASHBOARD
+                        RETOUR AU TABLEAU DE BORD
                     </button>
                 </div>
                 }

@@ -115,12 +115,12 @@ export class AdminRegistrationDetails implements OnInit, OnDestroy {
         next: (resp) => {
           console.log("Update response", resp);
           this.registration.set(resp);
-          this.notification.show('Registration updated')
+          this.notification.show('Inscription mise à jour')
         },
         error: (error) => {
           this.enableReview();
           console.error("Error updating registry", error);
-          this.notification.error('Registration update failed')
+          this.notification.error("Échec de la mise à jour de l'inscription")
         }
       })
     }
@@ -146,7 +146,7 @@ export class AdminRegistrationDetails implements OnInit, OnDestroy {
       },
       error: (error) => {
         console.log("Error download file", error);
-        this.notification.error("Error opening file");
+        this.notification.error("Erreur lors de l'ouverture du fichier");
       }
     })
   }
@@ -154,19 +154,19 @@ export class AdminRegistrationDetails implements OnInit, OnDestroy {
   deleteRegistration(): void {
     this.dialog.open(ConfirmDialog, {
       data: {
-        title: 'Delete registration',
-        message: `Are you sure you want to delete the registration for ${this.registration().email}? This action cannot be undone.`
+        title: "Supprimer l'inscription",
+        message: `Êtes-vous sûr de vouloir supprimer l'inscription pour ${this.registration().email} ? Cette action est irréversible.`
       }
     }).afterClosed().subscribe(confirmed => {
       if (confirmed) {
         this.onBoardingService.deleteAdminRegistration(this.registration().id).subscribe({
           next: () => {
-            this.notification.info('Registration deleted successfully'),
+            this.notification.info('Inscription supprimée avec succès'),
               this.router.navigate(['/admin'])
           },
           error: (error) => {
             console.error("Error deleting registration", error);
-            this.notification.error('Failed to delete registration')
+            this.notification.error("Échec de la suppression de l'inscription")
           }
         });
       }
@@ -174,6 +174,13 @@ export class AdminRegistrationDetails implements OnInit, OnDestroy {
   }
 
   prettyStatus(status: string) {
-    return status.split("_").join(" ");
+    const map: Record<string, string> = {
+      submitted: 'Soumis',
+      under_review: "En cours d'examen",
+      action_required: 'Action requise',
+      active: 'Actif',
+      rejected: 'Rejeté'
+    };
+    return map[status] ?? status.split("_").join(" ");
   }
 }

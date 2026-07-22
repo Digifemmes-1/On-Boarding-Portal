@@ -9,7 +9,7 @@
                 <mat-tab>
                     <ng-template mat-tab-label>
                         <mat-icon class="tab-icon">add</mat-icon>
-                        <span>REGISTER ENTITY</span>
+                        <span>INSCRIRE UNE ENTITÉ</span>
                     </ng-template>
                     <div class="tab-content">
                         <app-registration-form />
@@ -18,15 +18,15 @@
                 <mat-tab>
                     <ng-template mat-tab-label>
                         <mat-icon class="tab-icon">track_changes</mat-icon>
-                        <span>TRACK PROGRESS</span>
+                        <span>SUIVRE LA PROGRESSION</span>
                     </ng-template>
 
                     <div class="tab-content">
                         <div class="status-lookup-wrapper">
                             @if(!trackedRegistration) {
                             <div class="search-info">
-                                <h2>Resume Onboarding</h2>
-                                <p>Retrieve the status of a previously submitted organization profile.</p>
+                                <h2>Reprendre l'Enregistrement</h2>
+                                <p>Retrouvez le statut d'un profil d'organisation précédemment soumis.</p>
                             </div>
                             }
                             @if(isProcessing()){
@@ -34,7 +34,7 @@
                             }
                             @if(!_editing()) {
                             <mat-form-field appearance="outline" style="width: 100%; margin-top: 24px;">
-                                <mat-label>Application Tracking ID</mat-label>
+                                <mat-label>Identifiant de suivi de la demande</mat-label>
                                 <input matInput [(ngModel)]="trackingId">
                                 <button mat-icon-button matSuffix (click)="onSearch()" [disabled]="!trackingId">
                                     <mat-icon>search</mat-icon>

@@ -30,25 +30,25 @@ export class Dashboard {
   readonly columns: ColumnConfig[] = [
     {
       key: 'email',
-      label: 'Email Address',
+      label: 'Adresse e-mail',
       type: 'text',
     },
     {
       key: 'status',
-      label: 'Current Status',
+      label: 'Statut actuel',
       type: 'text',
       uppercase: true,
-      getValue: (row) => row.status.split("_").join(" ")
+      getValue: (row) => ({"submitted":"Soumis","under_review":"En cours d'examen","action_required":"Action requise","active":"Actif","rejected":"Rejeté"})[row.status as string] || row.status.split("_").join(" ")
     },
     {
       key: 'createdAt',
-      label: 'Registration Date',
+      label: "Date d'inscription",
       type: 'date',
       dateFormat: 'dd/MM/yyyy HH:mm'
     },
     {
       key: 'updatedAt',
-      label: 'Last Update',
+      label: 'Dernière mise à jour',
       type: 'date',
       dateFormat: 'dd/MM/yyyy HH:mm:ss'
     },
@@ -65,17 +65,17 @@ export class Dashboard {
       icon: 'delete',
       action: (row: Registration, reload) => {
         this.dialog.open(ConfirmDialog, {
-          data: { title: 'Delete registration', message: `Are you sure you want to delete the registration for ${row.email}? This action cannot be undone.` }
+          data: { title: "Supprimer l'inscription", message: `Êtes-vous sûr de vouloir supprimer l'inscription pour ${row.email} ? Cette action est irréversible.` }
         }).afterClosed().subscribe(confirmed => {
           if (confirmed) {
             this.onBoardingService.deleteAdminRegistration(row.id).subscribe({
               next: () => {
-                this.notificationService.info('Registration deleted successfully'),
+                this.notificationService.info('Inscription supprimée avec succès'),
                   reload()
               },
               error: (error) => {
                 console.error("Error deleting registration", error);
-                this.notificationService.error('Failed to delete registration');
+                this.notificationService.error("Échec de la suppression de l'inscription");
               }
             });
           }
@@ -85,11 +85,11 @@ export class Dashboard {
   ];
   readonly filters: FilterConfig[] = [{
     key: 'status',
-    label: 'Status',
+    label: 'Statut',
     type: 'enum',
     multiple: true,
     options: Object.keys(RegistrationStatus).map(key => ({
-      label: key.split("_").join(" "),
+      label: ({"SUBMITTED":"SOUMIS","UNDER_REVIEW":"EN COURS D'EXAMEN","ACTION_REQUIRED":"ACTION REQUISE","ACTIVE":"ACTIF","REJECTED":"REJETÉ"})[key] || key.split("_").join(" "),
       value: String(RegistrationStatus[key as keyof typeof RegistrationStatus])
     }))
   }];

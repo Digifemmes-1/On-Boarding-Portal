@@ -2,7 +2,7 @@
     <div class="header-container">
         <div class="brand" (click)="goLanding()">
             <img src="/favicon.ico" width="80" height="80" />
-            <span>Onboarding Portal</span>
+            <span>Portail d'Enregistrement</span>
         </div>
         <span class="spacer"></span>
         @if(showAdminLogin || showOnBoarding || showUserMenu) {
@@ -11,12 +11,12 @@
 
             <button mat-button class="nav-link" (click)="onAdminLogin()">
                 <mat-icon>lock_open</mat-icon>
-                ADMIN PORTAL
+                PORTAIL ADMIN
             </button>
             }
             @if(showOnBoarding) {
             <button mat-flat-button color="accent" class="cta-small" (click)="onSubmit()">
-                START ONBOARDING PROCESS
+                DÉMARRER L'ENREGISTREMENT
             </button>
             }
             @if(showUserMenu && user) {
@@ -28,7 +28,7 @@
                 <button mat-menu-item disabled>
                     <p>{{ user.preferred_username }}</p>
                 </button>
-                <button (click)="onLogout()" mat-menu-item>Logout</button>
+                <button (click)="onLogout()" mat-menu-item>Déconnexion</button>
             </mat-menu>
             }
         </div>

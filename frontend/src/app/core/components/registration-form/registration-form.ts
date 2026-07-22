@@ -111,7 +111,7 @@ export class RegistrationForm {
         },
         error: (err) => {
           this.isProcessing.set(false);
-          this.notification.error('Error submitting the application');
+          this.notification.error('Erreur lors de la soumission de la demande');
           console.error('Submission Error:', err);
         }
       });
