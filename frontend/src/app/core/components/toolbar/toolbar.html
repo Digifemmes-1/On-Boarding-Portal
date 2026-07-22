@@ -1,12 +1,11 @@
 <mat-toolbar color="primary" class="main-header mat-elevation-z4">
     <div class="header-container">
         <div class="brand" (click)="goLanding()">
-            <img src="/favicon.ico" width="80" height="80" />
-            <span>Onboarding Portal</span>
+            <img src="/lacaseagri-logo.svg" alt="La Case Agri" height="48" style="width: auto;" />
         </div>
         <span class="spacer"></span>
         @if(showAdminLogin || showOnBoarding || showUserMenu) {
-        <div>
+        <div class="desktop-nav">
             @if(showAdminLogin) {
 
             <button mat-button class="nav-link" (click)="onAdminLogin()">
@@ -32,6 +31,33 @@
             </mat-menu>
             }
         </div>
+
+        <button mat-icon-button class="mobile-menu-toggle" [matMenuTriggerFor]="mobileMenu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #mobileMenu="matMenu">
+            @if(showAdminLogin) {
+            <button mat-menu-item (click)="onAdminLogin()">
+                <mat-icon>lock_open</mat-icon>
+                <span>ADMIN PORTAL</span>
+            </button>
+            }
+            @if(showOnBoarding) {
+            <button mat-menu-item class="cta-small mobile-cta" (click)="onSubmit()">
+                <mat-icon>add_business</mat-icon>
+                <span>START ONBOARDING PROCESS</span>
+            </button>
+            }
+            @if(showUserMenu && user) {
+            <button mat-menu-item disabled>
+                <p>{{ user.preferred_username }}</p>
+            </button>
+            <button mat-menu-item (click)="onLogout()">
+                <mat-icon>logout</mat-icon>
+                <span>Logout</span>
+            </button>
+            }
+        </mat-menu>
         }
     </div>
 </mat-toolbar>

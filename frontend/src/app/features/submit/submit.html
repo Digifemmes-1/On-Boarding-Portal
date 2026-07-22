@@ -2,6 +2,9 @@
     <app-toolbar [showAdminLogin]="false" [showOnBoarding]="false" />
     <div class="onboarding-wrapper">
         <mat-card class="main-container animate-fade-in">
+            <button mat-icon-button class="close-btn" (click)="close()" aria-label="Fermer">
+                <mat-icon>close</mat-icon>
+            </button>
 
             <mat-tab-group animationDuration="400ms" [selectedIndex]="selectedTabIndex"
                 (selectedIndexChange)="updateAnchor($event)">
