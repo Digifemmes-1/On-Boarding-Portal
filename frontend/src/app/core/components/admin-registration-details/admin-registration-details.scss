@@ -1,9 +1,23 @@
-$main-bg-color: #f9f9f9;
+$main-bg-color: #f0f7f2;
 .detail-container {
     padding: 16px;
     background: $main-bg-color;
     border-radius: 12px;
-    border: 1px solid #e0e0e0;
+
+    // Retire juste le fond gris que Material applique par defaut aux champs
+    // desactives ; le contour reste le gris par defaut de Material, identique
+    // a l'etat au repos du formulaire d'inscription (label/texte deja verts
+    // via les regles globales de styles.scss, pas besoin de les repeter ici).
+    ::ng-deep .mat-form-field-disabled {
+        .mdc-text-field,
+        .mat-mdc-text-field-wrapper {
+            background-color: transparent !important;
+        }
+
+        input.mat-mdc-input-element {
+            -webkit-text-fill-color: #1a4731 !important;
+        }
+    }
 }
 
 
@@ -21,6 +35,12 @@ $main-bg-color: #f9f9f9;
     mat-icon {
       margin-right: 8px;
     }
+  }
+
+  ::ng-deep button[color="warn"] mat-icon,
+  ::ng-deep button[color="accent"] mat-icon,
+  ::ng-deep button[color="primary"] mat-icon {
+    color: #ffffff !important;
   }
 }
 

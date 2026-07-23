@@ -8,6 +8,7 @@ import { Toolbar } from "../../../core/components/toolbar/toolbar";
 import { FilterConfig } from '../../../core/types/table-filter';
 import { RegistrationStatus } from '../../../core/types/registration-status';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialog } from '../../../core/components/confirm-dialog/confirm-dialog';
@@ -15,7 +16,7 @@ import { NotificationService } from '../../../core/services/notification';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [PaginatedTable, Toolbar, MatCardModule],
+  imports: [PaginatedTable, Toolbar, MatCardModule, MatIconModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })

@@ -39,13 +39,13 @@
             @if(showAdminLogin) {
             <button mat-menu-item (click)="onAdminLogin()">
                 <mat-icon>lock_open</mat-icon>
-                <span>ADMIN PORTAL</span>
+                <span>PORTAIL ADMIN</span>
             </button>
             }
             @if(showOnBoarding) {
             <button mat-menu-item class="cta-small mobile-cta" (click)="onSubmit()">
                 <mat-icon>add_business</mat-icon>
-                <span>START ONBOARDING PROCESS</span>
+                <span>DÉMARRER L'ENREGISTREMENT</span>
             </button>
             }
             @if(showUserMenu && user) {
@@ -54,7 +54,7 @@
             </button>
             <button mat-menu-item (click)="onLogout()">
                 <mat-icon>logout</mat-icon>
-                <span>Logout</span>
+                <span>Déconnexion</span>
             </button>
             }
         </mat-menu>

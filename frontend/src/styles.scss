@@ -148,6 +148,13 @@ button.mat-primary,
   background-color: #e07a20 !important;
   color: #ffffff !important;
 }
+.mat-mdc-raised-button.mat-primary mat-icon,
+.mat-mdc-unelevated-button.mat-primary mat-icon,
+.mat-mdc-flat-button.mat-primary mat-icon,
+button.mat-primary mat-icon,
+button[color="primary"] mat-icon {
+  color: #ffffff !important;
+}
 
 .mat-mdc-button.mat-primary,
 .mat-mdc-icon-button.mat-primary,
@@ -158,6 +165,7 @@ a.mat-primary {
 .mat-mdc-card,
 mat-card {
   background-color: #ffffff !important;
+  box-shadow: none !important;
 }
 
 .mat-mdc-card mat-icon,
@@ -237,6 +245,26 @@ button[color="accent"]:hover {
   background-color: #c96a10 !important;
 }
 
+/* Boutons destructifs PLEINS (Supprimer, etc.) : texte + icone toujours blancs.
+   Scope limite aux boutons "filled/flat/raised" pour ne pas blanchir les boutons
+   texte comme "Effacer les filtres" (mat-button color="warn", sans fond). */
+.mat-mdc-raised-button[color="warn"],
+.mat-mdc-unelevated-button[color="warn"],
+.mat-mdc-flat-button[color="warn"],
+button[matButton="filled"][color="warn"] {
+  color: #ffffff !important;
+}
+.mat-mdc-raised-button[color="warn"] .mdc-button__label,
+.mat-mdc-unelevated-button[color="warn"] .mdc-button__label,
+.mat-mdc-flat-button[color="warn"] .mdc-button__label,
+button[matButton="filled"][color="warn"] .mdc-button__label,
+.mat-mdc-raised-button[color="warn"] mat-icon,
+.mat-mdc-unelevated-button[color="warn"] mat-icon,
+.mat-mdc-flat-button[color="warn"] mat-icon,
+button[matButton="filled"][color="warn"] mat-icon {
+  color: #ffffff !important;
+}
+
 /* Stepper (mat-stepper) : cercle d'etape actif vert au lieu du bleu par defaut */
 .mat-stepper-horizontal,
 .mat-stepper-vertical {
@@ -261,4 +289,23 @@ button[color="accent"]:hover {
 }
 .mdc-tab-indicator__content--underline {
   border-color: #1a4731 !important;
+}
+
+/* Menus deroulants (mat-select statut, items per page, etc.) : fond vert pale au lieu du gris Material */
+.mat-mdc-select-panel {
+  background-color: #f0f7f2 !important;
+  box-shadow: none !important;
+}
+.mat-mdc-option {
+  --mat-option-selected-state-layer-color: rgba(26, 71, 49, 0.14) !important;
+  --mat-option-hover-state-layer-color: rgba(26, 71, 49, 0.1) !important;
+  --mat-option-focus-state-layer-color: rgba(26, 71, 49, 0.1) !important;
+  --mat-option-label-text-color: #1a4731 !important;
+  --mat-option-selected-state-label-text-color: #1a4731 !important;
+}
+.mdc-checkbox {
+  --mdc-checkbox-selected-icon-color: #1a4731 !important;
+  --mdc-checkbox-selected-hover-icon-color: #1a4731 !important;
+  --mdc-checkbox-selected-focus-icon-color: #1a4731 !important;
+  --mdc-checkbox-selected-checkmark-color: #ffffff !important;
 }

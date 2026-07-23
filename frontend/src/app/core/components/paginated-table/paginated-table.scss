@@ -9,7 +9,6 @@
   margin: 2rem auto;
   border-radius: var(--mat-sys-corner-medium, 12px);
   overflow: hidden;
-  box-shadow: var(--mat-sys-level1);
 }
 
 /* --- Loading Shade --- */
@@ -30,7 +29,7 @@
 /* --- Filters Section --- */
 .filters-section {
   padding: 1.5rem 1.5rem 0.5rem 1.5rem;
-  background-color: var(--mat-sys-surface-container-low);
+  background-color: #f0f7f2;
   border-bottom: 1px solid var(--mat-sys-outline-variant);
 }
 
@@ -46,6 +45,20 @@
     align-items: center;
     height: 100%;
     margin-bottom: 22px;
+
+    ::ng-deep button[color="warn"] {
+      border-radius: 20px;
+      background-color: rgba(211, 47, 47, 0.08);
+      transition: background-color 0.2s ease;
+
+      mat-icon {
+        color: currentColor !important;
+      }
+
+      &:hover {
+        background-color: rgba(211, 47, 47, 0.16);
+      }
+    }
   }
 }
 
@@ -53,15 +66,17 @@
 .table-responsive {
   width: 100%;
   overflow-x: auto;
-  background-color: var(--mat-sys-surface);
+  background-color: #f0f7f2;
 }
 
 .custom-styled-table {
   width: 100%;
   background: transparent;
+  --mat-table-row-item-outline-color: rgba(26, 71, 49, 0.12);
+  --mdc-data-table-divider-color: rgba(26, 71, 49, 0.12);
 
   th.mat-header-cell {
-    background-color: var(--mat-sys-surface-container-low);
+    background-color: #f0f7f2;
     color: var(--mat-sys-on-surface);
     font-weight: 600;
     white-space: nowrap;
@@ -90,7 +105,7 @@
 
 /* --- Paginator --- */
 mat-paginator {
-  background-color: var(--mat-sys-surface-container-low);
+  background-color: #f0f7f2;
   border-top: 1px solid var(--mat-sys-outline-variant);
 }
 

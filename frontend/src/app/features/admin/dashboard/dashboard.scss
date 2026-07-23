@@ -16,5 +16,29 @@
   width: 100%;
   max-width: 1400px;
   border-radius: var(--mat-sys-corner-large, 16px);
-  box-shadow: var(--mat-sys-level2);
+  box-shadow: none !important;
+}
+
+.header-container {
+  padding-left: 14px;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .title-icon {
+    color: #1a4731;
+  }
+
+  ::ng-deep mat-card-title {
+    font-weight: 700 !important;
+    color: #1a4731 !important;
+  }
+}
+
+::ng-deep mat-card-subtitle {
+  color: #4a7a5e !important;
+  margin-top: 2px !important;
 }
