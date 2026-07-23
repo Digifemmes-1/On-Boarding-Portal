@@ -23,9 +23,13 @@ html {
   background-size: cover;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  box-sizing: content-box;
+  overflow-x: hidden;
 }
 
 
@@ -79,4 +83,182 @@ button[color="warn"] {
   --mat-sys-on-primary: var(--mat-sys-on-error);
   --mat-sys-primary-container: var(--mat-sys-error-container);
   --mat-sys-on-primary-container: var(--mat-sys-on-error-container);
+}
+
+/* --- Theme La Case Agri --- */
+html, body, *:not(mat-icon):not(.material-icons):not(.material-symbols-outlined) {
+  font-family: 'Inter', 'Roboto', sans-serif !important;
+}
+
+/* Icones : passent sur Material Symbols Outlined au lieu de Material Icons (ligature) */
+.material-icons,
+mat-icon {
+  font-family: 'Material Symbols Outlined' !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-size: 24px !important;
+  line-height: 1 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  display: inline-block !important;
+  white-space: nowrap !important;
+  word-wrap: normal !important;
+  direction: ltr !important;
+  -webkit-font-feature-settings: 'liga' !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+:root {
+  --mat-toolbar-container-background-color: #ffffff !important;
+  --mdc-filled-button-container-color: #e07a20 !important;
+  --mdc-protected-button-container-color: #e07a20 !important;
+  --mat-primary: #1a4731 !important;
+  /* Degrade de fond derriere le hero (utilisait les tokens Material bleus par defaut) */
+  --app-navy-gradient: linear-gradient(35deg, #ffffff 0%, #ffffff 100%) !important;
+}
+
+.mat-toolbar.mat-primary,
+mat-toolbar.mat-primary,
+.main-header {
+  background-color: #ffffff !important;
+  color: #1a4731 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+.mat-toolbar .nav-link,
+.mat-toolbar button,
+.mat-toolbar .mdc-button__label,
+.mat-toolbar mat-icon {
+  color: #1a4731 !important;
+}
+
+[class*="bg-gradient"],
+[class*="from-blue"],
+.hero,
+.hero-section,
+[class*="gradient"] {
+  background: linear-gradient(to bottom right, #1a4731, #2d6b4a, #40916c) !important;
+}
+
+.mat-mdc-raised-button.mat-primary,
+.mat-mdc-unelevated-button.mat-primary,
+.mat-mdc-flat-button.mat-primary,
+button.mat-primary,
+.mdc-button--raised {
+  --mdc-filled-button-container-color: #e07a20 !important;
+  background-color: #e07a20 !important;
+  color: #ffffff !important;
+}
+
+.mat-mdc-button.mat-primary,
+.mat-mdc-icon-button.mat-primary,
+a.mat-primary {
+  color: #1a4731 !important;
+}
+
+.mat-mdc-card,
+mat-card {
+  background-color: #ffffff !important;
+}
+
+.mat-mdc-card mat-icon,
+.mat-mdc-card .mat-icon,
+mat-card mat-icon {
+  color: #1a4731 !important;
+}
+
+/* Champs de formulaire : contour + curseur + fleche verts au lieu du bleu par defaut */
+.mat-mdc-form-field {
+  --mdc-outlined-text-field-focus-outline-color: #1a4731 !important;
+  --mdc-outlined-text-field-hover-outline-color: #40916c !important;
+  --mdc-outlined-text-field-caret-color: #1a4731 !important;
+  --mat-form-field-focus-select-arrow-color: #1a4731 !important;
+  --mdc-outlined-text-field-focus-outline-width: 1px !important;
+  --mdc-outlined-text-field-focus-label-text-color: #1a4731 !important;
+  --mdc-outlined-text-field-label-text-color: #4a7a5e !important;
+  --mdc-outlined-text-field-hover-label-text-color: #1a4731 !important;
+  --mat-form-field-container-text-color: #1a4731 !important;
+}
+.mdc-floating-label,
+.mat-mdc-floating-label,
+.mdc-floating-label--float-above,
+.mdc-text-field label {
+  color: #4a7a5e !important;
+}
+.mdc-text-field--focused .mdc-floating-label,
+.mdc-text-field--focused .mat-mdc-floating-label {
+  color: #1a4731 !important;
+}
+.mdc-text-field--focused .mdc-notched-outline__leading,
+.mdc-text-field--focused .mdc-notched-outline__notch,
+.mdc-text-field--focused .mdc-notched-outline__trailing {
+  border-color: #1a4731 !important;
+  border-width: 1px !important;
+}
+
+h1, h2, .hero-title, .mat-headline-1, .mat-headline-2, [class*="headline"] {
+  color: #0d2b1a !important;
+}
+
+.mat-mdc-raised-button.mat-primary:hover,
+button.mat-primary:hover {
+  background-color: #c96a10 !important;
+}
+
+/* Toolbar : nom "Onboarding Portal" (simple <span>, pas de classe dediee) */
+.main-header .brand span {
+  color: #1a4731 !important;
+}
+
+/* Bouton "START ONBOARDING PROCESS" : color="accent" + class cta-small, pas mat-primary */
+.cta-small,
+button[color="accent"] {
+  --mdc-filled-button-label-text-color: #ffffff !important;
+  background-color: #e07a20 !important;
+  color: #ffffff !important;
+}
+.cta-small .mdc-button__label,
+button[color="accent"] .mdc-button__label,
+.cta-small mat-icon,
+button[color="accent"] mat-icon {
+  color: #ffffff !important;
+}
+/* Version dans le menu burger mobile : garder la forme pilule (pas une ligne de menu plate) */
+.mat-mdc-menu-panel .mobile-cta {
+  border-radius: 9999px !important;
+  margin: 8px 12px !important;
+  width: calc(100% - 24px) !important;
+  min-height: 40px !important;
+  height: 40px !important;
+  justify-content: center !important;
+}
+
+.cta-small:hover,
+button[color="accent"]:hover {
+  background-color: #c96a10 !important;
+}
+
+/* Stepper (mat-stepper) : cercle d'etape actif vert au lieu du bleu par defaut */
+.mat-stepper-horizontal,
+.mat-stepper-vertical {
+  --mat-stepper-header-selected-state-icon-background-color: #1a4731 !important;
+  --mat-stepper-header-selected-state-icon-foreground-color: #ffffff !important;
+  --mat-stepper-header-selected-state-label-text-color: #1a4731 !important;
+  --mat-stepper-header-edit-state-icon-background-color: #1a4731 !important;
+  --mat-stepper-header-edit-state-icon-foreground-color: #ffffff !important;
+  --mat-stepper-container-color: #f0f7f2 !important;
+  background-color: #f0f7f2 !important;
+}
+
+/* Onglets (mat-tab-group) : indicateur actif vert au lieu du bleu par defaut */
+.mat-mdc-tab-group {
+  --mdc-tab-indicator-active-indicator-color: #1a4731 !important;
+  --mat-tab-header-active-label-text-color: #1a4731 !important;
+  --mat-tab-header-active-ripple-color: #1a4731 !important;
+  --mat-tab-header-active-focus-indicator-color: #1a4731 !important;
+  --mat-tab-header-active-hover-indicator-color: #1a4731 !important;
+  --mat-tab-header-active-focus-label-text-color: #1a4731 !important;
+  --mat-tab-header-active-hover-label-text-color: #1a4731 !important;
+}
+.mdc-tab-indicator__content--underline {
+  border-color: #1a4731 !important;
 }

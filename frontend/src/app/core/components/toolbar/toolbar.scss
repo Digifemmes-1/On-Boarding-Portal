@@ -24,3 +24,32 @@
 .spacer {
     flex: 1 1 auto;
 }
+
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .nav-link {
+        border-radius: 20px;
+        background-color: rgba(26, 71, 49, 0.08);
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: rgba(26, 71, 49, 0.18);
+        }
+    }
+}
+
+.mobile-menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none !important;
+    }
+    .mobile-menu-toggle {
+        display: inline-flex !important;
+    }
+}
