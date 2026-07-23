@@ -29,7 +29,7 @@
                 <input matInput type="number" [formControlName]="filter.key">
               }
               @default {
-                <input matInput type="text" [formControlName]="filter.key" placeholder="Search...">
+                <input matInput type="text" [formControlName]="filter.key" placeholder="Rechercher...">
               }
             }
           </mat-form-field>
@@ -38,7 +38,7 @@
         <div class="filter-actions">
           <button mat-button color="warn" (click)="filterForm.reset()" type="button">
             <mat-icon>filter_alt_off</mat-icon>
-            Clear Filters
+            Effacer les filtres
           </button>
         </div>
       </form>

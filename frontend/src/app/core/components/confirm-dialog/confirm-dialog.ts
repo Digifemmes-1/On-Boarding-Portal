@@ -21,10 +21,10 @@ export class ConfirmDialog {
   private readonly dialogRef = inject(MatDialogRef<ConfirmDialog>);
   readonly data: ConfirmDialogData = inject(MAT_DIALOG_DATA, { optional: true }) ?? {};
 
-  readonly title = this.data.title ?? 'Delete file';
-  readonly message = this.data.message ?? 'Are you sure you want to delete this file? This action cannot be undone.';
-  readonly confirmText = this.data.confirmText ?? 'Delete';
-  readonly cancelText = this.data.cancelText ?? 'Cancel';
+  readonly title = this.data.title ?? 'Supprimer le fichier';
+  readonly message = this.data.message ?? 'Êtes-vous sûr de vouloir supprimer ce fichier ? Cette action est irréversible.';
+  readonly confirmText = this.data.confirmText ?? 'Supprimer';
+  readonly cancelText = this.data.cancelText ?? 'Annuler';
 
   confirm(): void {
     this.dialogRef.close(true);

@@ -4,7 +4,7 @@
 
         <mat-tab>
             <ng-template mat-tab-label>
-                <span>SUMMARY</span>
+                <span>RÉSUMÉ</span>
             </ng-template>
 
             <div class="grid-layout">
@@ -13,7 +13,7 @@
                     <input matInput formControlName="did">
                 </mat-form-field>
                 <mat-form-field appearance="outline" class="span-4">
-                    <mat-label>Register Status</mat-label>
+                    <mat-label>Statut de l'inscription</mat-label>
                     <mat-select formControlName="status">
                         @for (status of statusOptions; track status) {
                         <mat-option [value]="status">{{ prettyStatus(status) | titlecase}}</mat-option>
@@ -21,32 +21,32 @@
                     </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline" class="span-12">
-                    <mat-label>Registration ID</mat-label>
+                    <mat-label>Identifiant d'inscription</mat-label>
                     <input matInput formControlName="id">
                     <mat-icon matSuffix>fingerprint</mat-icon>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="span-12">
-                    <mat-label>Administrative Email</mat-label>
+                    <mat-label>E-mail administratif</mat-label>
                     <input matInput formControlName="email">
                     <mat-icon matSuffix>email</mat-icon>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
-                    <mat-label>Submission Date</mat-label>
+                    <mat-label>Date de soumission</mat-label>
                     <input matInput [value]="registration().createdAt | date:'dd/MM/yyyy HH:mm:ss'" disabled>
                     <mat-icon matSuffix>calendar_today</mat-icon>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
-                    <mat-label>Last Update</mat-label>
+                    <mat-label>Dernière mise à jour</mat-label>
                     <input matInput [value]="registration().updatedAt | date:'dd/MM/yyyy HH:mm:ss'" disabled>
                     <mat-icon matSuffix>update</mat-icon>
                 </mat-form-field>
 
                 @if(registration().files?.length) {
                 <div class="span-12 files-container">
-                    <mat-label class="section-label">Attached Documents</mat-label>
+                    <mat-label class="section-label">Documents joints</mat-label>
                     <mat-chip-set class="chip-list">
                         @for(file of registration().files; track file.name) {
                         <mat-chip-row class="preview-chip" (click)="previewFile(file)" matTooltip="Click to preview PDF"
@@ -80,7 +80,7 @@
         </mat-tab>
         <mat-tab>
             <ng-template mat-tab-label>
-                <span>COMPANY INFORMATION</span>
+                <span>INFORMATIONS DE L'ENTREPRISE</span>
             </ng-template>
             <div class="grid-layout">
                 <mat-form-field appearance="outline" class="span-8">
@@ -123,20 +123,20 @@
         @if(!_editting()) {
         <button type="button" mat-flat-button color="warn" class="delete-action" (click)="deleteRegistration()">
             <mat-icon>delete</mat-icon>
-            Delete
+            Supprimer
         </button>
         <button type="button" matButton="filled" color="accent" (click)="enableReview()">
             <mat-icon>edit_note</mat-icon>
-            Review
+            Réviser
         </button>
         } @else {
         <button type="submit" matButton="filled" color="primary"
             [disabled]="registrationForm.invalid || !registrationForm.dirty">
             <mat-icon>save</mat-icon>
-            Save
+            Enregistrer
         </button>
         <button type="button" matButton="tonal" color="" (click)="cancelReview()">
-            Cancel
+            Annuler
         </button>
         }
     </div>

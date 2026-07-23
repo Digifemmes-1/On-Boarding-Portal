@@ -102,6 +102,10 @@ export class Submit {
     });
   }
 
+  close(): void {
+    this.router.navigate(['/']);
+  }
+
   updateAnchor(index: number): void {
     const fragment = ANCHOR_SECTIONS[index];
 
